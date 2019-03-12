@@ -31,9 +31,9 @@ a:hover{
 	color: rgba(0,0,0,0.7);
 }
 .main-landing-area{
-position: absolute;
-  bottom:30%;
-  left:20%;
+position: relative;
+  margin-top: 0%;
+  left:14%;
 }
 
 body{
@@ -63,3 +63,4 @@ background: linear-gradient(to right, #89fffd, #ef32d9); /* W3C, IE 10+/ Edge, F
 
 }
 >>>>>>> e4cf31ef1cf4b39be05743a2c328264b76b7c17c
+
