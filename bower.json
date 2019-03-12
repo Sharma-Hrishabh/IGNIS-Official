@@ -1,0 +1,26 @@
+{
+  "name": "ignis",
+  "description": "Website for annual sports fest of NIT Surat",
+  "main": "index.js",
+  "authors": [
+    "Hrishabh"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "sports",
+    "nit",
+    "surat"
+  ],
+  "homepage": "https://github.com/Sharma-Hrishabh/IGNIS-Official",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "materialize": "^1.0.0"
+  }
+}
