@@ -1,29 +1,44 @@
 nav{
   /* background:#fb6602; */
-
+  background: none;  /* #ef32d9 fallback for old browsers */
+  /*background: -webkit-linear-gradient(to right, #89fffd, #ef32d9);  /* Chrome 10-25, Safari 5.1-6 */*/
+  /*background: linear-gradient(to right, #89fffd, #ef32d9);  W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   min-width:100%;
-  background: #00b3fe;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #89fffd, #ef32d9);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #89fffd, #ef32d9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-}
-.nav-wrapper{
 
 }
 
+a:hover{
+	border: 2px solid black;
+}
+
+.card-title{
+	font-family: ubuntu;
+}
+.card{
+	border:2px solid #89fffd;
+	border-radius: 10px;
+	transition-duration: 2s;
+	transition-property: background-image;
+	color: grey;
+	transition-timing-function: ease-in;
+}
+
+.card:hover{
+	/*background-color: aqua;*/
+	/*background-image: linear-gradient(to right, #89fffd, #ef32d9);*/
+	border:2px solid aqua;
+	/*border-radius: 20px;*/
+	color: rgba(0,0,0,0.7);
+}
 .main-landing-area{
-  position: absolute;
-  top:50%;
+position: absolute;
+  bottom:30%;
   left:20%;
 }
 
 body{
 margin:0;
 padding:0;
-max-height:100%;
-display: flex;
-min-height: 100vh;
-flex-direction: column;
 }
 
 .button{
@@ -32,6 +47,8 @@ background: -webkit-linear-gradient(to right, #89fffd, #ef32d9);  /* Chrome 10-2
 background: linear-gradient(to right, #89fffd, #ef32d9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
+<<<<<<< HEAD
+=======
 
 
 .parallax-container {
@@ -45,3 +62,4 @@ background: -webkit-linear-gradient(to right, #89fffd, #ef32d9);  /* Chrome 10-2
 background: linear-gradient(to right, #89fffd, #ef32d9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
+>>>>>>> e4cf31ef1cf4b39be05743a2c328264b76b7c17c
