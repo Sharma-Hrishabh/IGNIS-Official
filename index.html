@@ -3,14 +3,47 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="public/style.css">
+    <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
 
-  <script type="text/javascript" src="bower_components/jquery-3.3.1.min/index.js"></script>
-  <script type="text/javascript" src="public/script.js"></script>
-  <script type="text/javascript" src="bower_components/materialize/dist/js/materialize.min.js"></script>
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo">IGNIS</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="sass.html">About</a></li>
+            <li><a href="badges.html">Events</a></li>
+            <li><a href="collapsible.html">Regsiter</a></li>
+          </ul>
+        </div>
+      </nav>
 
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="sass.html">About</a></li>
+        <li><a href="badges.html">Events</a></li>
+        <li><a href="collapsible.html">Javascript</a></li>
+      </ul>
+
+
+
+  <script type="text/javascript" src="bower_components/jquery-3.3.1.min/index.js"></script>
+  <script type="text/javascript" src="public/js/script.js"></script>
+  <script type="text/javascript" src="bower_components/materialize/dist/js/materialize.min.js"></script>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+  });
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+
+  </script>
   </body>
 </html>
