@@ -11,12 +11,10 @@ a:hover{
 	border: 2px solid black;
 }
 
-.card-title{
-	font-family: ubuntu;
-}
+
 .card{
-	border:2px solid #89fffd;
-	border-radius: 10px;
+	/* border:2px solid #89fffd; */
+	/* border-radius: 10px; */
 	transition-duration: 2s;
 	transition-property: background-image;
 	color: grey;
@@ -54,4 +52,10 @@ footer{
 background: -webkit-linear-gradient(to right, #89fffd, #ef32d9);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #89fffd, #ef32d9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+}
+
+
+.aboutus-span{
+  color:#1D555A;
+  font-size: 20px;
 }
