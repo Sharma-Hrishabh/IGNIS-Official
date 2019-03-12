@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:900|Yatra+One');
 nav{
   /* background:#fb6602; */
   background: none;  /* #ef32d9 fallback for old browsers */
@@ -79,7 +80,9 @@ background: linear-gradient(to right, #89fffd, #ef32d9); /* W3C, IE 10+/ Edge, F
   top: 0;
   left: 0;
   color: #2C3E50;
-
+  /*font-family: 'Yatra One', cursive;*/
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 
 }
 /*
     This is the outer svg wrapper that the SVG itself will 
@@ -110,7 +113,7 @@ background: linear-gradient(to right, #89fffd, #ef32d9); /* W3C, IE 10+/ Edge, F
   fill: transparent;
   stroke: #2C3E50;
   stroke-dasharray: 85 400;
-  stroke-dashoffset: -240;
+  stroke-dashoffset: -245;
   transition: 1s all ease;
 }
 /* 
@@ -141,5 +144,5 @@ make it thinner, then set it to again wrap around the entire parent element.
   stroke-width: 10px;
   stroke-dashoffset: 0;
   stroke: #2C3E50;
-  
+
 }
