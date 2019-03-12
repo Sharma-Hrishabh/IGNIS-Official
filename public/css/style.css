@@ -1,10 +1,27 @@
-.nav-wrapper{
-  background:#fb6602;
+nav{
+  /* background:#fb6602; */
+  background: #ef32d9;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #89fffd, #ef32d9);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #89fffd, #ef32d9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  min-width:100%;
+
 }
 
 
 .main-landing-area{
-  position: absolute;
+position: absolute;
   bottom:30%;
   left:20%;
+}
+
+body{
+margin:0;
+padding:0;
+}
+
+.button{
+  background: #ef32d9;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #89fffd, #ef32d9);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #89fffd, #ef32d9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
