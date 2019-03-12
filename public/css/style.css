@@ -33,20 +33,15 @@ a:hover{
 .main-landing-area{
 position: relative;
   margin-top: 0%;
-  left:14%;
+  margin-left: 14%;
 }
 
 body{
 margin:0;
 padding:0;
+overflow: auto;
 }
 
-.button{
-  background: #ef32d9;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #89fffd, #ef32d9);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #89fffd, #ef32d9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-}
 
 
 .parallax-container {
@@ -60,8 +55,3 @@ background: -webkit-linear-gradient(to right, #89fffd, #ef32d9);  /* Chrome 10-2
 background: linear-gradient(to right, #89fffd, #ef32d9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
-<<<<<<< HEAD
-=======
->>>>>>> e4cf31ef1cf4b39be05743a2c328264b76b7c17c
-
->>>>>>> master
