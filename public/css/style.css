@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:900|Yatra+One');
-@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates');
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,600,800);
+@import url(https://fonts.googleapis.com/css?family=Exo+2:400,100);
+
 
 nav{
   /* background:#fb6602; */
@@ -12,7 +15,7 @@ nav{
 
 @media only screen and (max-width: 600px) {
   #smallMedia {
-    background-image: '/public/images/backgroundSmall.png');
+    background-image: '/public/images/backgroundSmall.png' !important;
   }
 }
 /*a:hover{
@@ -174,3 +177,44 @@ make it thinner, then set it to again wrap around the entire parent element.
   box-shadow: 0 1px 0 0 rgba(255, 192, 0, 0.25), 0 -1px 0 0 rgba(255, 64, 0, 0.25), 1px 0 0 0 rgba(255, 192, 0, 0.25), -1px 0 0 0 rgba(255, 64, 0, 0.25), 1px -1px 0 0 rgba(255, 128, 0, 0.5), -1px 1px 0 0 rgba(255, 128, 0, 0.5), 1px 1px 0 0 rgba(255, 255, 0, 0.75), -1px -1px 0 0 rgba(255, 0, 0, 0.75);
 }
 */
+
+
+
+
+
+/*........... Tweaks in test begins here ....................*/
+
+h3 {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 48px;
+   background: -webkit-linear-gradient(-91deg, #4CA1AF 5%, #2C3E50 53%, #2C3E50 91%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 58px;
+ 
+
+}
+
+
+h2 {
+  font-size: 64px;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 100;
+  background: -webkit-linear-gradient(-86deg, #EEF85B 5%, #7AEC8D 53%, #09E5C3 91%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h1 {
+  font-size: 100px;
+  font-family: 'Intro', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  /* Warning: no fallback */
+  
+  background: -webkit-linear-gradient(-86deg, #EEF85B 5%, #7AEC8D 53%, #09E5C3 91%);
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 4px transparent;
+  color: #232d2d;
+  
+}
