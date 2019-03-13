@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:900|Yatra+One');
-@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates');
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,600,800);
+@import url(https://fonts.googleapis.com/css?family=Exo+2:400,100);
+
 
 nav{
   /* background:#fb6602; */
@@ -10,14 +13,9 @@ nav{
 
 }
 
-button{
-  background-color: black;
-}
-
 @media only screen and (max-width: 600px) {
   #smallMedia {
-    /*background-image: '/public/images/backgroundSmall.png');*/
-    height: 100%;
+    background-image: '/public/images/backgroundSmall.png' !important;
   }
 }
 /*a:hover{
@@ -37,7 +35,7 @@ button{
 .card:hover{
 	/*background-color: aqua;*/
 	/*background-image: linear-gradient(to right, #89fffd, #ef32d9);*/
-	border:4px solid teal;
+	border:2px solid aqua;
 	/*border-radius: 20px;*/
 	color: rgba(0,0,0,0.7);
 }
@@ -161,7 +159,7 @@ make it thinner, then set it to again wrap around the entire parent element.
 
 
 .textGrad {
-	/*text-transform: uppercase;*/
+	text-transform: uppercase;
 	background: linear-gradient(to right, #4CA1A0 0%, #2C3E50 100%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
@@ -170,138 +168,6 @@ make it thinner, then set it to again wrap around the entire parent element.
 		family: $font;
 	};
 }
-/* Timeline Materialize Design */
-.content {
-  width: 70%;
-  margin-left: 15%;
-}
-.timeline {
-  position: relative;
-}
-
-.timeline .timeline-event {
-  position: relative;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-.timeline .timeline-event .timeline-content {
-  position: relative;
-  width: calc(50% - 50px);
-}
-
-.timeline .timeline-event::before {
-  display: block;
-  content: "";
-  width: 2px;
-  height: calc(50% - 30px);
-  position: absolute;
-  background: #fff !important;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-  left: calc(50% - 1px);
-  top: 0;
-  border:1px solid teal;
-}
-
-.timeline .timeline-event::after {
-  border:1px solid teal;
-  display: block;
-  content: "";
-  width: 2px;
-  height: calc(50% - 30px);
-  position: absolute;
-  background: #fff !important;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-  left: calc(50% - 1px);
-  top: calc(50% + 30px);
-}
-
-.timeline .timeline-event:first-child::before {
-  display: none;
-}
-
-.timeline .timeline-event:last-child::after {
-  display: none;
-}
-
-.timeline .timeline-event:nth-child(even) .timeline-content {
-  margin-left: calc(50% + 50px);
-}
-
-.timeline .timeline-event:nth-child(odd) .timeline-content {
-  margin-left: 0;
-}
-
-.timeline .timeline-badge {
-  display: block;
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  background: #fff !important;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-  top: calc(50% - 20px);
-  right: calc(50% - 20px);
-  border-radius: 50%;
-  cursor: default;
-}
-
-.timeline .timeline-badge i {
-  font-size: 25px;
-  line-height: 40px;
-}
-
-@media (max-width: 600px) {
-  .timeline .timeline-event .timeline-content {
-    width: calc(100% - 70px);
-  }
-  .timeline .timeline-event::before {
-    left: 19px;
-  }
-  .timeline .timeline-event::after {
-    left: 19px;
-  }
-  .timeline .timeline-event:nth-child(even) .timeline-content {
-    margin-left: 70px;
-  }
-  .timeline .timeline-event:nth-child(odd) .timeline-content {
-    margin-left: 70px;
-  }
-  .timeline .timeline-badge {
-    left: 0;
-  }
-}
-
-/* Versions */
-
-ul li {
-      width: 100%;
-      color: #000;
-      /*background-color: #fff;*/
-    }
-
-   .collapsible-header {
-      -webkit-transition: color .3s ease;
-      -o-transition: color .3s ease;
-      transition: color .3s ease;
-      transition-property: color;
-      transition-duration: 0.3s;
-      transition-timing-function: ease;
-      transition-delay: 0s;
-    }
-
-   ul li .collapsible-header:hover {
-      color: grey;
-    }
-
-   .textAlignCenter {
-      position: absolute;
-      padding: 10px 0px 0px 7px !important;
-    }
-
-   .collapsible-header, .collapsible-body {
-      border-bottom: none !important;
-    }
-
 
 /*
 .gradBox {
@@ -311,3 +177,44 @@ ul li {
   box-shadow: 0 1px 0 0 rgba(255, 192, 0, 0.25), 0 -1px 0 0 rgba(255, 64, 0, 0.25), 1px 0 0 0 rgba(255, 192, 0, 0.25), -1px 0 0 0 rgba(255, 64, 0, 0.25), 1px -1px 0 0 rgba(255, 128, 0, 0.5), -1px 1px 0 0 rgba(255, 128, 0, 0.5), 1px 1px 0 0 rgba(255, 255, 0, 0.75), -1px -1px 0 0 rgba(255, 0, 0, 0.75);
 }
 */
+
+
+
+
+
+/*........... Tweaks in test begins here ....................*/
+
+h3 {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 48px;
+   background: -webkit-linear-gradient(-91deg, #4CA1AF 5%, #2C3E50 53%, #2C3E50 91%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 58px;
+ 
+
+}
+
+
+h2 {
+  font-size: 64px;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 100;
+  background: -webkit-linear-gradient(-86deg, #EEF85B 5%, #7AEC8D 53%, #09E5C3 91%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h1 {
+  font-size: 100px;
+  font-family: 'Intro', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  /* Warning: no fallback */
+  
+  background: -webkit-linear-gradient(-86deg, #EEF85B 5%, #7AEC8D 53%, #09E5C3 91%);
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 4px transparent;
+  color: #232d2d;
+  
+}
