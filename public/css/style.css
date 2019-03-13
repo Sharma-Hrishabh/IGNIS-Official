@@ -10,9 +10,14 @@ nav{
 
 }
 
+button{
+  background-color: black;
+}
+
 @media only screen and (max-width: 600px) {
   #smallMedia {
-    background-image: '/public/images/backgroundSmall.png');
+    /*background-image: '/public/images/backgroundSmall.png');*/
+    height: 100%;
   }
 }
 /*a:hover{
@@ -156,7 +161,7 @@ make it thinner, then set it to again wrap around the entire parent element.
 
 
 .textGrad {
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 	background: linear-gradient(to right, #4CA1A0 0%, #2C3E50 100%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
