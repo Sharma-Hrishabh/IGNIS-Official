@@ -15,7 +15,8 @@ nav{
 
 @media only screen and (max-width: 600px) {
   #smallMedia {
-    background-image: '/public/images/backgroundSmall.png' !important;
+    background-image:url('/public/images/backgroundSmall.png'); 
+    height: 100vh;
   }
 }
 /*a:hover{
