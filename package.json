@@ -2,7 +2,7 @@
   "name": "ignis",
   "version": "1.0.0",
   "description": "Website for annual sports fest of NIT Surat",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,6 +15,14 @@
   "license": "ISC",
   "dependencies": {
     "bower": "^1.8.8",
-    "materialize-css": "^1.0.0-rc.2"
+    "connect-session-sequelize": "^6.0.0",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "hogan-middleware": "^0.2.2",
+    "materialize-css": "^1.0.0-rc.2",
+    "mustache": "^3.0.1",
+    "nodemon": "^1.18.10",
+    "sequelize": "^4.42.1",
+    "sqlite3": "^4.0.6"
   }
 }

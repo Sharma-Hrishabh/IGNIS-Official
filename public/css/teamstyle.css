@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:900|Yatra+One');
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates');
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,600,800);
+@import url(https://fonts.googleapis.com/css?family=Exo+2:400,100);
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:200');
+
+h3 {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 48px;
+   background: -webkit-linear-gradient(-91deg, #4CA1AF 5%, #2C3E50 53%, #2C3E50 91%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 58px;
+ 
+
+}
+
+
+h2 {
+  font-size: 64px;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 100;
+  background: -webkit-linear-gradient(-86deg, #EEF85B 5%, #7AEC8D 53%, #09E5C3 91%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h1 {
+  font-size: 100px;
+  font-family: 'Intro', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  /* Warning: no fallback */
+  
+  background: -webkit-linear-gradient(-86deg, #EEF85B 5%, #7AEC8D 53%, #09E5C3 91%);
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 4px transparent;
+  color: #232d2d;
+  
+}
+.textGrad {
+  text-transform: uppercase;
+  background: linear-gradient(to right, #4CA1A0 0%, #2C3E50 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font: {
+    size: 20vw;
+    family: $font;
+  };
+}
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+ul li {
+      width: 100%;
+      color: #000;
+      /*background-color: #fff;*/
+    }
+
+   .collapsible-header {
+      -webkit-transition: color .3s ease;
+      -o-transition: color .3s ease;
+      transition: color .3s ease;
+      transition-property: color;
+      transition-duration: 0.3s;
+      transition-timing-function: ease;
+      transition-delay: 0s;
+    }
+
+   ul li .collapsible-header:hover {
+      color: grey;
+    }
+
+   .textAlignCenter {
+      position: absolute;
+      padding: 10px 0px 0px 7px !important;
+    }
+
+   .collapsible-header, .collapsible-body {
+      border-bottom: none !important;
+
+    }
+    #box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  /*color: white;*/
+  font-family: 'Raleway';
+  font-size: 15px;
+}
+#box2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 398px;
+  height: 195px;
+  /*color: #eeeeee;*/
+  font-family: 'Raleway';
+  font-size: 2.5rem;
+  background: none;
+  border : none;
+  
+}
+box2:after{
+  border : none;
+}
+
+#box2:focus{
+  border: none;
+}
+
+.gradient-border {
+  --borderWidth: 3px;
+  /*background: white;*/
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+
+img{
+  position: absolute;
+  z-index: 100;
+}
+.gradient-border:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: 155px;
+  width: 155px;
+  /*height: calc(100% + var(--borderWidth) * 2);*/
+  /*width: calc(100% + var(--borderWidth) * 2);*/
+  background: linear-gradient(60deg,teal,aqua,blue,aquamarine,purple,turquoise);
+  border-radius: 50%;
+  z-index: 1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
