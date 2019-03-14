@@ -167,7 +167,7 @@ img{
   </head>
   <body>
       <div class="section" id="smallMedia" style="height: 100%; background-image: url('images/background3.png');background-size:100% 130% ;">
-      <div class="row">
+      <div class="row" id="home">
         <nav class="transparent z-depth-0">
         <div class="nav-wrapper transparent">
           <a href="#!" class="brand-logo" style="margin-left:10%; margin-top: -2%;">
@@ -182,7 +182,7 @@ img{
                 <svg height="65" width="150" xmlns="http://www.w3.org/2000/svg">
                   <rect id="shape" height="65" width="150" />
                   <div id="text">
-                    <span class="spot"><a href=""><b>About</b></a></span>
+                    <span class="spot"><a href="#about"><b>About</b></a></span>
                   </div>
                 </svg>
 
@@ -195,7 +195,7 @@ img{
                 <svg height="65" width="150" xmlns="http://www.w3.org/2000/svg">
                   <rect id="shape" height="65" width="150" />
                   <div id="text">
-                    <span class="spot"><a href=""><b>Events</b></a></span>
+                    <span class="spot"><a href="#events"><b>Events</b></a></span>
                   </div>
                 </svg>
 
@@ -219,21 +219,21 @@ img{
       </nav>
 
       <ul class="sidenav" id="mobile-demo">
-        <li><a href="#">About</a></li>
-        <li><a href="#">Events</a></li>
-        <li><a href="#">Register</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="/register">Register</a></li>
       </ul>
       <h2 style="font-family: Orbitron; margin-left: 12%; margin-top: 10%; color: white; margin-bottom: 0px; padding-bottom: 0px;font-size: 100px;">IGNIS<span style="font-family: Orbitron; color: white ; font-size: 25px; font-weight: bold;">2019</span>
       </h2>
       <h5 style="margin-top: 0px;padding-top: 0px;font-family: Orbitron; margin-left: 12%;color: white;margin-bottom: 0px;">Unleash the Spirit</h5>
       </div>
       <div class="main-landing-area" style="padding-bottom: 210px;">
-            <a class="waves-effect waves-teal btn-large button"><i class="material-icons right">send</i>Register</a>
+            <a class="waves-effect waves-teal btn-large button" href="/register"><i class="material-icons right">send</i>Register</a>
       </div>
       </div>
       <!-- </section> -->
 
-  <div class="section about" >
+  <div class="section about" id="about">
     <div class="container">
       <center><h2 class="textGrad" style="font-family: 'Montserrat Alternates', sans-serif; color:teal;">ABOUT</h2></center>
     </div>
@@ -296,6 +296,144 @@ img{
   </div>
 
 
+<!--modal rules-->
+<!-- Modal Structure -->
+  <div id="modal_cricket" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Rules</h4>
+      <ol type="1">
+       <li> The bowler must bowl 6 legal deliveries to constitute an over.</li>
+<li>A game must have two umpires stood at either end of the wicket. The umpires then must count the number of balls in the over, make decisions on whether the batsmen is out after an appeal and also check that the bowler has bowled a legal delivery.</li>
+<li>A batsmen can be given out by either being bowled ( the ball hitting their stumps), caught (fielder catches the ball without it bouncing), Leg Before Wicket (the ball hits the batsmen’s pads impeding its line into the stumps), stumped (the wicket keeper strikes the stumps with their gloves whilst the batsmen is outside of their crease with ball in hand), hit wicket (the batsmen hits their own wicket), Handled ball ( the batsmen handles the cricket ball on purpose), timed out (the player fails to reach the crease within 30 seconds of the previous batsmen leaving the field), hit ball twice (batsmen hits the cricket ball twice with their bat) and obstruction ( the batsmen purposely prevents the fielder from getting the ball).</li>
+<li>    The fielding team must have one designated wicket keeper who is the only person allow to wear pads and gloves on the field. The wicket keeper stands behind the opposite end to the bowler to catch the ball.</li>
+
+      </ol>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+    </div>
+  </div> 
+
+  <div id="modal_badminton" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Rules</h4>
+      <ol type="1">
+        <li>A game can take place with either two (singles) or four (doubles) players.</li>
+       <li> To score a point the shuttlecock must hit within the parameters of the opponents court.</li>
+<li>If the shuttlecock hits the net or lands out then a point is awarded to your opponent.</li>
+<li>Players must serve diagonally across the net to their opponent. As points are won then serving stations move from one side to the other. There are no second serves so if your first serve goes out then your opponent wins the point.</li>
+<li>A serve must be hit underarm and below the servers waist. No overarm serves are allowed.
+Each game will start with a toss to determine which player will serve first and which side of the court the opponent would like to start from.</li>
+<li>Once the shuttlecock is ‘live’ then a player may move around the court as they wish. They are permitted to hit the shuttlecock from out of the playing area.</li>
+<li>If a player touches the net with any part of their body or racket then it is deemed a fault and their opponent receives the point.</li>
+<li>A fault is also called if a player deliberately distracts their opponent, the shuttlecock is caught in the racket then flung, the shuttlecock is hit twice or if the player continues to infract with the laws of badminton.</li>
+
+      </ol>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+    </div>
+  </div> 
+
+  <div id="modal_basketball" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Rules</h4>
+      <ol type="1">
+        <li>Each team can have a maximum of 5 players on the court at any one time. Substitutions can be made as many times as they wish within the game.</li>
+<li>The ball can only be moved by either dribbling (bouncing the ball) or passing the ball. Once a player puts two hands on the ball (not including catching the ball) they cannot then dribble or move with the ball and the ball must be passed or shot.</li>
+<li>After the ball goes into a team’s half and they win possession back the ball must then make it back over the half way line within 10 seconds. If the ball fails to do so then a foul will be called and the ball will be turned over.</li>
+<li>Each team has 24 seconds to at least shot at the basket. A shot constitutes either going in the basket or hitting the rim of the basket. If after the shot is taken and the ball fails to go in the basket then the shot clock is restarted for another 24 seconds.</li>
+<li>The team trying to score a basket is called the offence whilst the team trying to prevent them from scoring is called the defence. The defence must do all they can to stop the offence from scoring by either blocking a shot or preventing a shot from being fired.</li>
+<li>After each successful basket the ball is then turned over to the opposition.</li>
+<li>    Fouls committed throughout the game will be accumulated and then when reached a certain number will be eventually be awarded as a free throw. A free throw involves one playerfrom the offensive team (the player fouled) to take a shot unopposed from the free throw line. Depending on where the foul was committed will depend on the number free throws a player gets.</li>
+ <li>   Violations in basketball include travelling (taking more than one step without bouncing the ball), double dribble (picking the ball up dribbling, stopping then dribbling again with two hands), goaltending (a defensive player interferes with the ball travelling downwards towards the basket) and back court violation (once the ball passes the half way line the offensive team cannot take the ball back over the half way line).
+
+ </li>
+      </ol>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+    </div>
+  </div> 
+
+  <div id="modal_football" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <center><h4>Rules</h4></center>
+      <ol type="1">
+        <li>A match consists of two 45 minutes halves with a 15 minute rest period in between.</li>
+        <li>Each team can have a minimum off 11 players (including 1 goalkeeper who is the only player allowed to handle the ball within the 18 yard box) and a minimum of 7 players are needed to constitute a match.
+        </li>
+        <li>f the game needs to head to extra time as a result of both teams being level in a match then 30 minutes will be added in the form of two 15 minute halves after the allotted 90 minutes.</li>
+        <li>If teams are still level after extra time then a penalty shootout must take place.</li>
+        <li>For fouls committed a player could receive either a yellow or red card depending on the severity of the foul; this comes down to the referee’s discretion. The yellow is a warning and a red card is a dismissal of that player. Two yellow cards will equal one red. Once a player is sent off then they cannot be replaced.</li>
+        <li>f a ball goes out of play off an opponent in either of the side lines then it is given as a throw in. If it goes out of play off an attacking player on the base line then it is a goal kick. If it comes off a defending player it is a corner kick.</li>
+      </ol>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+    </div>
+  </div> 
+
+  <div id="modal_chess" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4><center>Rules</center></h4>
+      <ol type="1">
+        <li>Standard FIDE Touch and Move rules are applicable.</li>
+        <li>Teams are suppposed to carry two Chess boards and two Chess clocks with them.</li>
+        <li>Teams must arrive at the venue within 15 minutes of the start time of each matches, a win to opponent will be offered if failed to do so.</li>
+        <li><h6><b>Format</b></h6></li>
+        <ol type="I">
+          <li>The tournament will be played in Swiss system format.</li>
+          <li>Total number of rounds will be decided on the basis of total number of participating teams.</li>
+          <li>It is a Team Vs Team event with each round comprising of matches between two teams.</li>
+          <li>Each team must consist a minimum of 4 and maximum of 5 players.</li>
+          <li>Each match will be a best of 4 between two teams, with 4 players of one team playing against 4 players of the other team.</li>
+          <li>Each player gets 1 point for a win, 1/2 point for a tie and 0 point for loss.</li>
+          <li>The total point of all the players will be added after the round to get the match points of the team.</li>
+          <li>The team with hte hisghest number of points will be declared the winner in that round and be given 4 game points; the losing team will get 0 points. in case of a tie, 2 points will be awarded to boath the teams.</li>
+          <li>Time Control: 45 minutes + 30 second increment (may be changed by the arbiter before the event starts).</li>
+        </ol>
+        <li><h6><b>Tie-Breaker</b></h6></li>
+        <p>If any team finish with equal game points, the tie will be resolved as follows:</p>
+        <ol type="I">
+          <li>By board points in total.</li>
+          <li>If a tie againg results, the scores obtained by the tying teams against each other will decide.</li>
+          <li>If a tie again results,then the Buchhoiz System will be used.</li>
+          <li>If a tie again results,then the Sonneborn-Berger Sytem will be used.</li>
+          <li>If a tie again results,it shall be deccided by board count(Berlin System) as follows:</li>
+          <ol type="i">
+            <li>win on board 1- 4 points</li>
+            <li>win on board 2- 3 points</li>
+            <li>win on board 3- 2 points</li>
+            <li>win on board 4- 1 point</li>
+          </ol>
+          <p>In case of drawn games these points are shared. If the board-count reults in no victory for either side then the board points for Board 4 are cancelled and so on until the tie is broken.</p>
+          <li>If a tie still results between teams in contention for medals, these teams shall play a match against each other at a fast-time rate(15 minutes per player for the entire game).</li>
+          <li>If a match is indecisive, then lots will be drawn.</li>
+        </ol>
+        <li><b>Final decision will be taken by the arbiter and will be unquestionable.</b></li>
+      </ol>
+    </div>
+
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+    </div>
+  </div> 
+
+  <div id="modal_kabaddi" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <center><h4>Rules</h4></center>
+      <ol type="1">
+        <li>Each team shall consist of no more than 12 players with only 7 taking to the field at one time.</li>
+        <li>There are six officials looking after each Kabaddi match. the officials comprise of a referee,a scorer,two assistant scorers and two umpires.</li>
+        <li>The duration of match is 2 halves of 20 minutes with a half time break of 5 minutes.</li>
+        <li>At the start of a Kabaddi match, there will be a coin toss with the winner having the choice of whether to have a first raid or not. In the second half of the match, the team that did not raid first shall begin the second half with a raid.</li>
+      </ol>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+    </div>
+  </div>
   <!-- <div class="parallax-container center valign-wrapper" style="height:200px;">
   <div class="parallax"><img src="images/footballparallax.jpg">
   </div>
@@ -311,14 +449,14 @@ img{
 
  <!-- style="background-image: url('background2.png');background-size:cover;" -->
 
-  <div class="section events">
+  <div class="section events" id="events">
       <div class="parallax-container center valign-wrapper" style="height:800px;">
         <div class="parallax"><img src="images/background.png">
         </div>
 
     <div class="container">
       <div class="row">
-          <center><h2 class="textGrad" style="font-family: 'Montserrat Alternates', sans-serif; color:teal;">EVENTS</h2></center>
+          <center><h3 class="textGrad" style="font-family: 'Montserrat Alternates', sans-serif; color:teal;">EVENTS</h3></center>
         <div class="col l4 s12">
       <div class="card small hoverable">
     <div class="card-image waves-effect waves-block waves-light">
@@ -329,8 +467,10 @@ img{
       <!-- <p><a href="#">This is a link</a></p> -->
     </div>
     <div class="card-reveal">
-      <span class="card-title gradient grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+      <span class="card-title gradient grey-text text-darken-4">Cricket<i class="material-icons right">close</i></span>
       <p>Here is some more information about this product that is only revealed once clicked on.</p>
+      <!-- Modal Trigger -->
+  <button data-target="modal_cricket" class="btn modal-trigger">Rules</button>
     </div>
   </div>
 
@@ -347,8 +487,10 @@ img{
 <!-- <p><a href="#">This is a link</a></p> -->
 </div>
 <div class="card-reveal">
-<span class="card-title gradient grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+<span class="card-title gradient grey-text text-darken-4">Badminton<i class="material-icons right">close</i></span>
 <p>Here is some more information about this product that is only revealed once clicked on.</p>
+<!-- Modal Trigger -->
+  <button data-target="modal_badminton" class="btn modal-trigger">Rules</button>
 </div>
 </div>
 
@@ -363,8 +505,10 @@ img{
 <!-- <p><a href="#">This is a link</a></p> -->
 </div>
 <div class="card-reveal">
-<span class="card-title gradient grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+<span class="card-title gradient grey-text text-darken-4">Basketball<i class="material-icons right">close</i></span>
 <p>Here is some more information about this product that is only revealed once clicked on.</p>
+<!-- Modal Trigger -->
+  <button data-target="modal_basketball" class="btn modal-trigger">Rules</button>
 </div>
 </div>
 
@@ -381,8 +525,10 @@ img{
       <!-- <p><a href="#">This is a link</a></p> -->
     </div>
     <div class="card-reveal">
-      <span class="card-title gradient grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+      <span class="card-title gradient grey-text text-darken-4">Football<i class="material-icons right">close</i></span>
       <p>Here is some more information about this product that is only revealed once clicked on.</p>
+      <!-- Modal Trigger -->
+  <button data-target="modal_football" class="btn modal-trigger">Rules</button>
     </div>
   </div>
 
@@ -398,8 +544,10 @@ img{
 <span class="card-title gradient activator grey-text text-darken-4">CHESS<i class="material-icons right">more_vert</i></span>
 </div>
 <div class="card-reveal">
-<span class="card-title gradient grey-text text-darken-4">TABLE-TENNIS<i class="material-icons right">close</i></span>
+<span class="card-title gradient grey-text text-darken-4">Chess<i class="material-icons right">close</i></span>
 <p>Here is some more information about this product that is only revealed once clicked on.</p>
+<!-- Modal Trigger -->
+  <button data-target="modal_chess" class="btn modal-trigger">Rules</button>
 </div>
 </div>
 </div>
@@ -407,15 +555,17 @@ img{
 <div class="col l4 s12">
 <div class="card small hoverable">
 <div class="card-image waves-effect waves-block waves-light">
-<img class="activator" src="images/sportsICONS/tennis.png" height = "114px" style="width: 40%; margin-left: 30%; margin-right: 25%; margin-top: 5%;">
+<img class="activator" src="images/sportsICONS/kabaddi.png" height = "114px" style="width: 40%; margin-left: 30%; margin-right: 25%; margin-top: 5%;">
 </div>
 <div class="card-content">
-<span class="card-title gradient activator grey-text text-darken-4">LAWN-TENNIS<i class="material-icons right">more_vert</i></span>
+<span class="card-title gradient activator grey-text text-darken-4">KABADDI<i class="material-icons right">more_vert</i></span>
 <!-- <p><a href="#">This is a link</a></p> -->
 </div>
 <div class="card-reveal">
-<span class="card-title gradient grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+<span class="card-title gradient grey-text text-darken-4">Kabaddi<i class="material-icons right">close</i></span>
 <p>Here is some more information about this product that is only revealed once clicked on.</p>
+<!-- Modal Trigger -->
+  <button data-target="modal_kabaddi" class="btn modal-trigger">Rules</button>
 </div>
 </div>
 
@@ -449,10 +599,9 @@ img{
               <div class="timeline-content">
                 <ul class="collapsible" data-collapsible="">
                   <li>
-                    <div class="collapsible-header"><i class="fas fa-code droppioIcon"></i><span class="card-title">Alpha Code<i class="material-icons right">keyboard_arrow_down</i></span></div>
+                    <div class="collapsible-header"><i class="fas fa-code droppioIcon"></i><span class="card-title">Registration Begins<i class="material-icons right">keyboard_arrow_down</i></span></div>
                     <div class="collapsible-body">
-                      <p>Primera Webapp, version de prueba</p>
-                      <p><a href="https://trello.com/b/50Hxs0Hy/v-01" target="_blank">Danos tu opinion por medio de Trello</a></p>
+                      <p>Registration will start from 16<sup>th</sup> March,2019. Interested teams need to first register through the portal.</p>
                     </div>
                   </li>
                 </ul>
@@ -464,15 +613,9 @@ img{
               <div class="timeline-content">
                 <ul class="collapsible" data-collapsible="">
                   <li>
-                    <div class="collapsible-header"><i class="fas fa-tint droppioIcon"></i><span class="card-title">Beta Droplet<i class="material-icons right">keyboard_arrow_down</i></span></div>
+                    <div class="collapsible-header"><i class="fas fa-tint droppioIcon"></i><span class="card-title">Registration Ends<i class="material-icons right">keyboard_arrow_down</i></span></div>
                     <div class="collapsible-body">
-                      <p>Proximas Mejoras.</p>
-                      <ul>
-                        <li>Eliminar automaticamente campañas duplicadas</li>
-                        <li>Más Funcionalidades a las cartas</li>
-                        <li>Implementacion de Retroalimentacion </li>
-                        <p><a href="https://trello.com/b/3IZ4niq9/v-05" target="_blank">Danos tu opinion por medio de Trello</a></p>
-                      </ul>
+                      <p>Registration ends on 29<sup>th</sup> March,2019. On spot registration will <b>NOT</b> be allowed. Teams should make sure they are completely registered.</p>
                     </div>
                   </li>
                 </ul>
@@ -484,14 +627,9 @@ img{
               <div class="timeline-content">
                 <ul class="collapsible" data-collapsible="">
                   <li>
-                    <div class="collapsible-header"><i class="fas fa-share-alt droppioIcon"></i><span class="card-title">Social Blood<i class="material-icons right">keyboard_arrow_down</i></span></div>
+                    <div class="collapsible-header"><i class="fas fa-share-alt droppioIcon"></i><span class="card-title">IGNIS-2019 Begins<i class="material-icons right">keyboard_arrow_down</i></span></div>
                     <div class="collapsible-body">
-                      <p>Proximas Mejoras:</p>
-                      <ul>
-                        <li>Implementacion de Redes Sociales en el motor de busqueda.</li>
-                        <li>Implementacion de Redes Sociales para iniciar sesion.</li>
-                        <p><a href="https://trello.com/b/I6LVsqJn/v-10" target="_blank">Danos tu opinion por medio de Trello</a></p>
-                      </ul>
+                      <p>IGNIS 2019 will begin on 29<sup>th</sup> March,2019 with a opening ceremony at 1900 hrs.</p>
                     </div>
                   </li>
                 </ul>
@@ -503,11 +641,10 @@ img{
               <div class="timeline-content">
                 <ul class="collapsible" data-collapsible="">
                   <li>
-                    <div class="collapsible-header"><i class="fas fa-rocket droppioIcon"></i><span class="card-title">Rocket Drop<i class="material-icons right">keyboard_arrow_down</i></span></div>
+                    <div class="collapsible-header"><i class="fas fa-rocket droppioIcon"></i><span class="card-title">IGNIS-2019 Ends<i class="material-icons right">keyboard_arrow_down</i></span></div>
                     <div class="collapsible-body">
-                      <p>Lanzamiento de aplicacione nativa para iOS y Android.
+                      <p>The event will go on till 31<sup>th</sup> March,2019.
                       </p>
-                      <p><a href="https://trello.com/b/4qp0XX79/v-20" target="_blank">Danos tu opinion por medio de Trello</a></p>
                     </div>
                   </li>
                 </ul>
@@ -528,39 +665,39 @@ img{
 <ul class="collapsible">
     <li>
       <div class="collapsible-header"><i class="material-icons">filter_drama</i>What is IGNIS 2019?</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+      <div class="collapsible-body"><span>IGNIS 2019 is the 7<sup>th</sup> edition of Annual Sport's Fest of SVNIT, Surat.</span></div>
     </li>
     <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>What is IGNIS 2019?</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>Who can participate?</div>
+      <div class="collapsible-body"><span>All technical colleges can partcipate.</span></div>
     </li>
     <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>What is IGNIS 2019?</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>Are the matches KnockOut or League?</div>
+      <div class="collapsible-body"><span>The format of the event will be decided based on number of participating teams.</span></div>
     </li>
     <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>What is IGNIS 2019?</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>What about accomodation?</div>
+      <div class="collapsible-body"><span>Accomodation will be made available to all ON campus. In case of unavailable seats, accomodation will be given somewhere nearby.</span></div>
     </li>
   </ul>
 </div>
   <div class="col s12 l6">
 <ul class="collapsible">
     <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>What is IGNIS 2019?</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>When is it happening?</div>
+      <div class="collapsible-body"><span>The IGNIS 2019 is being conducted from 29 March 2019 to 31 March 2019.</span></div>
     </li>
     <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>What is IGNIS 2019?</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>Is there any proof required when we come to play?</div>
+      <div class="collapsible-body"><span>Students are supposed to carry the college IDs and any other valid proof. The payment reciept must be kept along.</span></div>
     </li>
     <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>What is IGNIS 2019?</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>Can one person participate in more than one event?</div>
+      <div class="collapsible-body"><span>Yes. But in case of clashes between events it will be the responsibility of participant to manage it.</span></div>
     </li>
     <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>What is IGNIS 2019?</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>Is On spot registeration allowed?</div>
+      <div class="collapsible-body"><span>No. On spot registration will not be allowed. Teams have to register through this portal once the registration begins.</span></div>
     </li>
   </ul>
 </div>
@@ -642,9 +779,9 @@ paraparaparaparaapar
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Links</h5>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Home</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Register</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">College Website</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#home">Home</a></li>
+                  <li><a class="grey-text text-lighten-3" href="/register">Register</a></li>
+                  <li><a class="grey-text text-lighten-3" href="http://www.svnit.ac.in/">College Website</a></li>
                 </ul>
               </div>
             </div>
@@ -681,7 +818,12 @@ paraparaparaparaapar
 
   });
 
-
-  </script>
+</script>
+   <script type="text/javascript">
+  $(document).ready(function(){
+    $('.modal').modal();
+  });
+  
+ </script>
   </body>
 </html>
