@@ -1,8 +1,75 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:900|Yatra+One');
-@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates');
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,600,800);
 @import url(https://fonts.googleapis.com/css?family=Exo+2:400,100);
 
+@import url('https://fonts.googleapis.com/css?family=Raleway:200');
+
+
+#box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  /*color: white;*/
+  font-family: 'Raleway';
+  font-size: 15px;
+}
+#box2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 398px;
+  height: 195px;
+  /*color: #eeeeee;*/
+  font-family: 'Raleway';
+  font-size: 2.5rem;
+  background: none;
+  border : none;
+  
+}
+box2:after{
+  border : none;
+}
+
+#box2:focus{
+  border: none;
+}
+
+.gradient-border {
+  --borderWidth: 3px;
+  background: white;
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+
+.gradient-border:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg,teal,aqua,blue,aquamarine,purple,turquoise);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
 nav{
   /* background:#fb6602; */
@@ -15,7 +82,8 @@ nav{
 
 @media only screen and (max-width: 600px) {
   #smallMedia {
-    background-image: 'images/backgroundSmall.png' !important;
+    background-image:url('/public/images/backgroundSmall.png'); 
+    height: 100vh;
   }
 }
 /*a:hover{
@@ -354,3 +422,68 @@ ul li {
       border-bottom: none !important;
 
     }
+    #box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 200px;
+  color: white;
+  font-family: 'Raleway';
+  font-size: 2.5rem;
+}
+#box2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 398px;
+  height: 195px;
+  color: #eeeeee;
+  font-family: 'Raleway';
+  font-size: 2.5rem;
+  background: none;
+  border : none;
+  
+}
+#box2:after{
+  border : none;
+}
+
+#box2:focus{
+  border: none;
+}
+
+.gradient-border {
+  --borderWidth: 3px;
+  background: #1D1F20;
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+
+.gradient-border:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+  
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
