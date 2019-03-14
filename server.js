@@ -18,9 +18,9 @@ const App = express()
 App.disable('x-powered-by')
 
 
-App.use(express.static(path.join(__dirname + '/views/')))
-App.use(express.static(path.join(__dirname + '/assets/')))
-App.use(express.static(path.join(__dirname + '/public/')))
+App.use(express.static(path.join(__dirname + '/views')))
+App.use(express.static(path.join(__dirname + '/bower_components')))
+App.use(express.static(path.join(__dirname + '/public')))
 
 App.use(bodyParser.json())
 App.use(bodyParser.urlencoded({
@@ -31,8 +31,8 @@ App.use(bodyParser.urlencoded({
 
 var PaytmConfig = {
     mid: "wmuEJA26128098023775", // use the development merchant id
-	key: "gi8teVPs1FIdsjcL",   // use the secret key of development
-	website: "WEBSTAGING"
+    key: "gi8teVPs1FIdsjcL", // use the secret key of development
+    website: "WEBSTAGING"
 }
 
 
@@ -91,16 +91,9 @@ App.use(['/view-team', '/pay', '/players'], session({
     Home page 
 */
 App.get('/', (req, res) => {
-    res.sendFile("index.html")
+    res.sendFile(path.join(__dirname + "/views/index.html"))
 })
 
-/*
-    faq page is displayed 
-    simple get request is accepted
-*/
-App.get('/faq', (req, res) => {
-    res.sendFile(path.join(__dirname + "/views/faq.html"))
-})
 
 /*
     registration page, showing the instructions for registration
@@ -125,19 +118,7 @@ App.get('/register', (req, res) => {
     accepts GET request redirected from '/regiter' route
     
     this page sends the user to player form page
-*/
-App.get('/teamform', (req, res) => {
-    console.log(req.headers.referer)
-    // CLEAN
-    if (req.headers.referer == 'https://' + req.headers.host + '/register' || req.headers.referer == 'http://' + req.headers.host + '/register') {
-        res.sendFile(path.join(__dirname + '/views/reg_form.html'))
-    } else {
-        res.send("PAGE NOT FOUND!")
-    }
-})
 
-
-/*
     cannot be visited
     only POST request from team registration page is allowed
     no view is available
@@ -145,12 +126,46 @@ App.get('/teamform', (req, res) => {
 */
 App.post('/submit-team', (req, res) => {
     // CLEAN
-    if (req.headers.referer == 'https://' + req.headers.host + '/teamform' || req.headers.referer == 'http://' + req.headers.host + '/teamform') {
+    console.log(req.body)
+    if (req.headers.referer == 'https://' + req.headers.host + '/register' || req.headers.referer == 'http://' + req.headers.host + '/register') {
         // TODO
         const form = req.body
-        var leader_id, college_id, team_id, event_id = 2
+        var leader_id, college_id, team_id, event_id = 2,
+            flag = 1,
+            desc = "",
+            err_code = 1
 
-        if (reg_name.test(form.college) && reg_name.test(form.state) && reg_name.test(form.city) && reg_pin.test(form.pincode) && reg_name.test(form.leader) && reg_mail.test(form.email) && reg_contact.test(form.contact) && reg_name.test(form.team)) {
+        if (!reg_name.test(form.college)) {
+            desc = "Invalid input to Institute name"
+            flag = 0
+        } else if (!reg_name.test(form.state)) {
+            desc = "Invalid input to State"
+            flag = 0
+        } else if (!reg_name.test(form.city)) {
+            desc = "Invalid input to City"
+            flag = 0
+        } else if (!reg_pin.test(form.pincode)) {
+            desc = "Invalid input to Pincode"
+            flag = 0
+        } else if (!reg_name.test(form.leader)) {
+            desc = "Invalid input to Leader Name"
+            flag = 0
+        } else if (!reg_mail.test(form.email)) {
+            desc = "Invalid input to Email"
+            flag = 0
+        } else if (!reg_contact.test(form.contact)) {
+            desc = "Invalid input to Contact"
+            flag = 0
+        } else if (!reg_name.test(form.team)) {
+            desc = "Invalid input to Team Name"
+            flag = 0
+        } else if (!(typeof(form.player) == "number")) {
+            desc = "Invalid input to Team players"
+            flag = 0
+        }
+
+
+        if (flag) {
             College.create({
                 name: form.college,
                 state: form.state,
@@ -179,26 +194,33 @@ App.post('/submit-team', (req, res) => {
                     }, {
                         fields: ['name', 'team', 'college']
                     }).then(() => {
-                        res.redirect('/players?pl=' + form.player + '&team=' + form.team)
-                        // res.send("Team details saved!")
+                        // TODO: send relevant error responses.
+                        res.send({
+                            status: 1,
+                            status_message: 'success',
+                            players: form.player
+                        })
                     }).catch(err => {
-                        res.send('Could not proceed for registration.<br>Try after sometime.<br>If the problem persists, Kindly contact us!')
+                        res.send({status: 0, error_desc: 'Could not proceed for registration.<br>Try after sometime.<br>If the problem persists, Kindly contact us!'})
                         console.log("PLAYER_ADD_ERR: " + err)
                     })
                 }).catch(err => {
-                    res.send('Could not proceed for registration.<br>Try after sometime.<br>If the problem persists, Kindly contact us!')
+                    res.send({status: 0, error_desc: 'Could not proceed for registration.<br>Try after sometime.<br>If the problem persists, Kindly contact us!'})
                     console.log("TEAM_ADD_ERR: " + err)
                 }) // TODO
             }).catch((err) => {
-                res.send('Could not proceed for registration.<br>Try after sometime.<br>If the problem persists, Kindly contact us!')
+                res.send({status: 0, error_desc: 'Could not proceed for registration.<br>Try after sometime.<br>If the problem persists, Kindly contact us!'})
                 console.log("COLLEGE_ADD_ERR: " + err)
             })
         } else {
-            res.send("INVALID VALUE!")
+            res.send({
+                status: 0,
+                error_desc: desc
+            })
         }
         // on successful commit to database, redirect the client
     } else {
-        res.send("PAGE NOT FOUND!")
+        res.send("APAGE NOT FOUND!")
     }
 })
 
@@ -209,6 +231,7 @@ App.post('/submit-team', (req, res) => {
 */
 App.all('/players', (req, res) => {
     // CLEAN
+    // get method not used
     if (req.method == "GET" && (req.headers.referer == 'https://' + req.headers.host + '/teamform' || req.headers.referer == 'http://' + req.headers.host + '/teamform')) {
         // getting player count from the 'teamform' route
         req.session.team = req.query.team
@@ -269,7 +292,7 @@ App.all('/players', (req, res) => {
 
     } else {
         if (req.session) req.session.destroy()
-        res.send("PAGE NOT FOUND!")
+        res.send("BPAGE NOT FOUND!")
     }
 })
 
@@ -334,7 +357,7 @@ App.all('/view-team', (req, res) => {
             }
         } else {
             if (res.session) res.session.destroy()
-            res.send("PAGE NOT FOUND!")
+            res.send("CPAGE NOT FOUND!")
         }
     } else if (req.method == "POST" && req.session.team != null && (req.headers.referer == 'https://' + req.headers.host + '/view-team' || req.headers.referer == 'http://' + req.headers.host + '/view-team')) {
         // TODO: show team detail as user is already logged in
@@ -366,7 +389,7 @@ App.all('/view-team', (req, res) => {
     } else {
         console.log(req.method)
         if (req.session) req.session.destroy()
-        res.send("PAGE NOT FOUND!")
+        res.send("DPAGE NOT FOUND!")
     }
 })
 
@@ -377,42 +400,42 @@ App.all('/view-team', (req, res) => {
 */
 App.all('/pay', (req, res) => {
     if (req.method == "GET" && (req.headers.referer == 'https://' + req.headers.host + '/view-team' || req.headers.referer == 'http://' + req.headers.host + '/view-team') && req.session.team != null) {
-        // TODO: 
-        res.sendFile(path.join(__dirname + '/views/index0.html'))
+        // TODO: not used, send 404
+        res.send("Not found!!")
         console.log(req.session.team)
-    } else if (req.method == "POST"  && (req.headers.referer == 'https://' + req.headers.host + '/pay' || req.headers.referer == 'http://' + req.headers.host + '/pay') && req.session.team != null) {
+    } else if (req.method == "POST" && (req.headers.referer == 'https://' + req.headers.host + '/pay' || req.headers.referer == 'http://' + req.headers.host + '/pay') && req.session.team != null) {
         // TODO: refer to the merchant's page
         // res.send('got the response!')
-        var params 						= {};
-        params['MID'] 					= PaytmConfig.mid;
-        params['WEBSITE']				= PaytmConfig.website;
-        params['CHANNEL_ID']			= 'WEB';
-        params['INDUSTRY_TYPE_ID']	= 'Retail';
-        params['ORDER_ID']			= 'TEST_'  + new Date().getTime();
-        params['CUST_ID'] 			= 'Customer001';
-        params['TXN_AMOUNT']		= '10.00';
-        params['CALLBACK_URL']		= 'https://ignis-nodejs.herokuapp.com/callback';
-        params['EMAIL']				= 'gamerujjwal@gmail.com';
-        params['MOBILE_NO']			= '7777777777';
+        var params = {};
+        params['MID'] = PaytmConfig.mid;
+        params['WEBSITE'] = PaytmConfig.website;
+        params['CHANNEL_ID'] = 'WEB';
+        params['INDUSTRY_TYPE_ID'] = 'Retail';
+        params['ORDER_ID'] = 'TEST_' + new Date().getTime();
+        params['CUST_ID'] = 'Customer001';
+        params['TXN_AMOUNT'] = '10.00';
+        params['CALLBACK_URL'] = 'https://ignis-nodejs.herokuapp.com/callback';
+        params['EMAIL'] = 'gamerujjwal@gmail.com';
+        params['MOBILE_NO'] = '7777777777';
 
-        checksum.genchecksum(params, PaytmConfig.key, function (err, checksum) {
+        checksum.genchecksum(params, PaytmConfig.key, function(err, checksum) {
 
             var txn_url = "https://securegw-stage.paytm.in/theia/processTransaction"; // for staging
             // var txn_url = "https://securegw.paytm.in/theia/processTransaction"; // for production
-            
+
             var form_fields = "";
-            for(var x in params){
-                form_fields += "<input type='hidden' name='"+x+"' value='"+params[x]+"' >";
+            for (var x in params) {
+                form_fields += "<input type='hidden' name='" + x + "' value='" + params[x] + "' >";
             }
-            form_fields += '<input type="hidden" name="CHECKSUMHASH" value="'+checksum+'" >';
+            form_fields += '<input type="hidden" name="CHECKSUMHASH" value="' + checksum + '" >';
 
             // res.writeHead(200, {'Content-Type': 'text/html'});
             // res.write();
-            res.send('<html><head><title>Merchant Checkout Page</title></head><body><center><h1>Please do not refresh this page...</h1></center><form type="hidden" method="post" action="'+txn_url+'" name="f1">'+form_fields+'</form><script type="text/javascript">document.f1.submit()</script></body></html>');
+            res.send('<html><head><title>Merchant Checkout Page</title></head><body><center><h1>Please do not refresh this page...</h1></center><form type="hidden" method="post" action="' + txn_url + '" name="f1">' + form_fields + '</form><script type="text/javascript">document.f1.submit()</script></body></html>');
         });
         console.log(req.session.team)
     } else {
-        res.send("PAGE NOT FOUND!")
+        res.send("EPAGE NOT FOUND!")
     }
 })
 
@@ -426,34 +449,37 @@ App.post('/callback', (req, res) => {
     var html = "";
     var post_data = req.body;
     console.log(body)
-    
+
     // received params in callback
     console.log('Callback Response: ', post_data, "\n");
     html += "<b>Callback Response</b><br>";
-    for(var x in post_data){
+    for (var x in post_data) {
         html += x + " => " + post_data[x] + "<br/>";
     }
     html += "<br/><br/>";
-    
-    
+
+
     // verify the checksum
     var checksumhash = post_data.CHECKSUMHASH;
     // delete post_data.CHECKSUMHASH;
     var result = checksum.verifychecksum(post_data, PaytmConfig.key, checksumhash);
     console.log("Checksum Result => ", result, "\n");
-    html += "<b>Checksum Result</b> => " + (result? "True" : "False");
+    html += "<b>Checksum Result</b> => " + (result ? "True" : "False");
     html += "<br/><br/>";
-    
-    
-    
+
+
+
     // Send Server-to-Server request to verify Order Status
-    var params = {"MID": PaytmConfig.mid, "ORDERID": post_data.ORDERID};
-    
-    checksum.genchecksum(params, PaytmConfig.key, function (err, checksum) {
-        
+    var params = {
+        "MID": PaytmConfig.mid,
+        "ORDERID": post_data.ORDERID
+    };
+
+    checksum.genchecksum(params, PaytmConfig.key, function(err, checksum) {
+
         params.CHECKSUMHASH = checksum;
-        post_data = 'JsonData='+JSON.stringify(params);
-        
+        post_data = 'JsonData=' + JSON.stringify(params);
+
         var options = {
             hostname: 'securegw-stage.paytm.in', // for staging
             // hostname: 'securegw.paytm.in', // for production
@@ -465,63 +491,36 @@ App.post('/callback', (req, res) => {
                 'Content-Length': post_data.length
             }
         };
-        
-        
+
+
         // Set up the request
         var response = "";
-            var post_req = https.request(options, function(post_res) {
-            post_res.on('data', function (chunk) {
+        var post_req = https.request(options, function(post_res) {
+            post_res.on('data', function(chunk) {
                 response += chunk;
             });
-            
-            post_res.on('end', function(){
+
+            post_res.on('end', function() {
                 console.log('S2S Response: ', response, "\n");
-                
+
                 var _result = JSON.parse(response);
                 html += "<b>Status Check Response</b><br>";
-                for(var x in _result){
+                for (var x in _result) {
                     html += x + " => " + _result[x] + "<br/>";
                 }
-                
-                res.writeHead(200, {'Content-Type': 'text/html'});
+
+                res.writeHead(200, {
+                    'Content-Type': 'text/html'
+                });
                 res.write(html);
                 res.end();
             });
         });
-        
+
         // post the data
         post_req.write(post_data);
         post_req.end();
     });
-})
-
-App.post('/test', (req, res) => {
-    res.sendFile(path.join(__dirname + "/views/test.html"))
-})
-
-App.get('/test', (req, res) => {
-    if (!session.views) {
-        session.views = {}
-    }
-    console.log(session)
-    var pathname = req.path
-    session.views[pathname] = (session.views[pathname] || 0) + 1
-    res.send('you viewed this page (' + pathname + ') ' + session.views[pathname] + ' times')
-    // CLEAN
-    // if (req.headers.origin == 'https://' + req.headers.host || req.headers.referer == "http://localhost:3000") {
-    //     res.send("Origin set successfully!\n" + req.headers.origin)
-    // } else {
-    //     res.send("Origin not set!!")
-    // }console.log(req.session)
-})
-App.get('/bar', (req, res) => {
-    if (!req.session.views) {
-        req.session.views = {}
-    }
-    console.log(req.session)
-    var pathname = req.path
-    req.session.views[pathname] = (req.session.views[pathname] || 0) + 1
-    res.send('you viewed this page (' + pathname + ') ' + req.session.views[pathname] + ' times')
 })
 
 // PORT from environment variable for heroku deploy
