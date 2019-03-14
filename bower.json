@@ -1,7 +1,7 @@
 {
   "name": "ignis",
   "description": "Website for annual sports fest of NIT Surat",
-  "main": "index.js",
+  "main": "server.js",
   "authors": [
     "Hrishabh"
   ],
@@ -12,7 +12,6 @@
     "surat"
   ],
   "homepage": "https://github.com/Sharma-Hrishabh/IGNIS-Official",
-  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
@@ -21,7 +20,7 @@
     "tests"
   ],
   "dependencies": {
-    "materialize": "^1.0.0",
-    "jquery-3.3.1.min": "https://code.jquery.com/jquery-3.3.1.min.js"
+    "jquery-3.3.1.min": "https://code.jquery.com/jquery-3.3.1.min.js",
+    "materialize": "^1.0.0"
   }
 }
