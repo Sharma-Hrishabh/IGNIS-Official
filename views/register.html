@@ -96,17 +96,17 @@
 
             </div>
             <div class="input-field col s12">
-                <select>
+                <select name="sport">
                     <option value="" disabled selected>Select a Sport</option>
-                    <option value="1">Cricket</option>
-                    <option value="2">Football</option>
-                    <option value="3">Badminton</option>
-                    <option value="4">Lawn-Tennis</option>
-                    <option value="5">Kho-Kho</option>
+                    <option value="cricket">Cricket</option>
+                    <option value="football">Football</option>
+                    <option value="badminton">Badminton</option>
+                    <option value="lawntennis">Lawn-Tennis</option>
+                    <option value="khokho">Kho-Kho</option>
                 </select>
                 <label class="listus"></label>
 
-            </div>
+            </div><br>
 
 
             <div class="input-field col s12">
@@ -120,7 +120,12 @@
 
             </div>
 
+            <div class="input-field col s12">
 
+                <input placeholder="Team Members" id="players" type="number" class="validate" name="contact">
+
+
+            </div>
 
 
             <div class="row" style="margin-top:30px">
@@ -131,7 +136,7 @@
             <input type="button" class="submit-team action-button" value="Next" />
             <input type="hidden" class="next-p" />
         </fieldset>
-        <fieldset>
+        <fieldset id="pl">
             <h2 class="fs-title">Team Members Details</h2>
             <h3 class="fs-subtitle">Enter Names</h3>
 
@@ -140,23 +145,8 @@
                     <input placeholder="Member1-Name" id="member1" type="text" class="validate">
                 </div>
             </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input placeholder="Member2-Name" id="member2" type="text" class="validate">
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input placeholder="Member3-Name" id="member3" type="text" class="validate">
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input placeholder="Member4-Name" id="member4" type="text" class="validate">
-                </div>
-            </div>
-            <input type="button" name="previous" class="previous action-button" value="Previous" />
-            <input type="button" name="next" class="next action-button" value="Next" />
+            <!-- <input type="button" name="previous" class="previous action-button" value="Previous" /> -->
+            <!-- <input type="button" name="next" class="submit-players action-button" value="Submit" /> -->
         </fieldset>
 
     </form>
@@ -215,16 +205,18 @@
         });
 
         $(".submit-team").click(function() {
-            // TODO: ajax call goes here
+            
             var form = {
-                college: 'svnit',
-                team: 'team',
-                leader: 'leader',
-                email: 'email',
-                contact: 'contact',
-                pincode: 'pincode',
-                city: 'city',
-                state: 'default'
+                college: $('input[name="college"]').val(),
+                team: $('input[name="team"]').val(),
+                leader: $('input[name="leader"]').val(),
+                email: $('input[name="email"]').val(),
+                contact: $('input[name="contact"]').val(),
+                pincode: $('input[name="pincode"]').val(),
+                city: $('input[name="city"]').val(),
+                sport: $('select[name="sport"]').val(),
+                player: $('#players').val(),
+                state: "default"
             }
 
             var settings = {
@@ -239,6 +231,16 @@
             $.ajax(settings).done(function(response) {
                 if (response.status == 1) {
                     // TODO: show exact number of input fields
+                    var html = ""
+                    for (var i = 2; i <= response.players; i++) {
+                        html += '<div class="row">\
+                            <div class="input-field col s12">\
+                                <input placeholder="Member'+i+'-Name" id="member'+i+'" type="text" class="validate">\
+                            </div>\
+                        </div>'
+                    }
+                    html += '<input type="button" name="next" class="submit-players action-button" value="Submit" />'
+                    $('#pl').append(html)
                     $(".next-p").click();
                 } else {
                     alert("Invalid Input in the Form.\nError description: " + response.error_desc + "\nPlease provide valid details to form.");
@@ -292,7 +294,35 @@
         });
 
         $(".submit-players").click(function() {
-            return false;
+            var form = {
+                // TODO get player details
+                college: 'svnit',
+                team: 'team',
+                leader: 'leader',
+                email: 'email',
+                contact: 'contact',
+                pincode: 'pincode',
+                city: 'city',
+                state: 'default'
+            }
+
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "/players",
+                "method": "POST",
+                "data": form
+            }
+
+            // this is success handler
+            $.ajax(settings).done(function(response) {
+                if (response.status == 1) {
+                    // redirect to dashboard
+                    document.location = "/view-team"
+                } else {
+                    alert("Invalid Input in the Form.\nError description: " + response.error_desc + "\nPlease provide valid details to form.");
+                }
+            });
         })
 
         $(document).ready(function() {

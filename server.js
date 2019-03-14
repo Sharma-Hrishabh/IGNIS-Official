@@ -159,59 +159,84 @@ App.post('/submit-team', (req, res) => {
         } else if (!reg_name.test(form.team)) {
             desc = "Invalid input to Team Name"
             flag = 0
-        } else if (!(typeof(form.player) == "number")) {
+        } else if (!(typeof(parseInt(form.player)) == "number")) {
             desc = "Invalid input to Team players"
             flag = 0
         }
 
-
-        if (flag) {
-            College.create({
-                name: form.college,
-                state: form.state,
-                city: form.city,
-                pincode: form.pincode
-            }, {
-                fields: ['name', 'state', 'city', 'pincode']
-            }).then((clg) => {
-                college_id = clg.id
-                Team.create({
-                    name: form.team,
-                    college: college_id,
-                    leader: leader_id,
-                    event: event_id,
-                    leader: form.leader,
-                    email: form.email,
-                    contact: form.contact
-                }, {
-                    fields: ['name', 'college', 'leader', 'event', 'leader', 'email', 'contact']
-                }).then((tm) => {
-                    team_id = tm.id
-                    Player.create({
-                        name: form.leader,
-                        team: form.team,
-                        college: college_id
-                    }, {
-                        fields: ['name', 'team', 'college']
-                    }).then(() => {
-                        // TODO: send relevant error responses.
-                        res.send({
-                            status: 1,
-                            status_message: 'success',
-                            players: form.player
-                        })
-                    }).catch(err => {
-                        res.send({status: 0, error_desc: 'Could not proceed for registration.<br>Try after sometime.<br>If the problem persists, Kindly contact us!'})
-                        console.log("PLAYER_ADD_ERR: " + err)
+        if (flag) {console.log("hi")
+            // Event.findAll({
+            //     where: {
+            //         name: form.sport
+            //     }
+            // }).then((result) => {
+                if (0) {
+                    res.send({
+                        status: 0,
+                        error_desc: "Team Size Out of Limit"
                     })
-                }).catch(err => {
-                    res.send({status: 0, error_desc: 'Could not proceed for registration.<br>Try after sometime.<br>If the problem persists, Kindly contact us!'})
-                    console.log("TEAM_ADD_ERR: " + err)
-                }) // TODO
-            }).catch((err) => {
-                res.send({status: 0, error_desc: 'Could not proceed for registration.<br>Try after sometime.<br>If the problem persists, Kindly contact us!'})
-                console.log("COLLEGE_ADD_ERR: " + err)
-            })
+                } else {
+
+                    College.create({
+                        name: form.college,
+                        state: form.state,
+                        city: form.city,
+                        pincode: form.pincode
+                    }, {
+                        fields: ['name', 'state', 'city', 'pincode']
+                    }).then((clg) => {
+                        college_id = clg.id
+                        Team.create({
+                            name: form.team,
+                            college: college_id,
+                            leader: leader_id,
+                            event: event_id,
+                            leader: form.leader,
+                            email: form.email,
+                            contact: form.contact
+                        }, {
+                            fields: ['name', 'college', 'leader', 'event', 'leader', 'email', 'contact']
+                        }).then((tm) => {
+                            team_id = tm.id
+                            Player.create({
+                                name: form.leader,
+                                team: form.team,
+                                college: college_id
+                            }, {
+                                fields: ['name', 'team', 'college']
+                            }).then(() => {
+                                // TODO: send relevant error responses.
+                                res.send({
+                                    status: 1,
+                                    status_message: 'success',
+                                    players: form.player
+                                })
+                            }).catch(err => {
+                                res.send({
+                                    status: 0,
+                                    error_desc: 'Could not proceed for registration.<br>Try after sometime.<br>If the problem persists, Kindly contact us!'
+                                })
+                                console.log("PLAYER_ADD_ERR: " + err)
+                            })
+                        }).catch(err => {
+                            res.send({
+                                status: 0,
+                                error_desc: 'Could not proceed for registration.<br>Try after sometime.<br>If the problem persists, Kindly contact us!'
+                            })
+                            console.log("TEAM_ADD_ERR: " + err)
+                        })
+                    }).catch((err) => {
+                        res.send({
+                            status: 0,
+                            error_desc: 'Could not proceed for registration.<br>Try after sometime.<br>If the problem persists, Kindly contact us!'
+                        })
+                        console.log("COLLEGE_ADD_ERR: " + err)
+                    })
+                }
+            // }).catch(err => {
+            //     res.send("hello")
+            //     console.log(err+"");
+            // })
         } else {
             res.send({
                 status: 0,
@@ -220,7 +245,7 @@ App.post('/submit-team', (req, res) => {
         }
         // on successful commit to database, redirect the client
     } else {
-        res.send("APAGE NOT FOUND!")
+        res.send("PAGE NOT FOUND!")
     }
 })
 
@@ -281,18 +306,24 @@ App.all('/players', (req, res) => {
                     console.log("TEAM_STAT_UPDATE_ERR (" + team + "): " + err)
                 })
             }).catch(err => {
-                res.send("Internal server problem.<br>Please try again after some time.")
+                res.send({
+                    status: 0,
+                    error_desc: "Internal server problem.<br>Please try again after some time."
+                })
                 console.log("PLAYER_ADD_ERR: " + err)
             })
         } else {
             // TODO: return invalid input
-            res.send("INVALID INPUT!!")
+            res.send({
+                status: 0,
+                error_desc: "INVALID INPUT!!"
+            })
             console.log("Invalid input to /players route")
         }
 
     } else {
         if (req.session) req.session.destroy()
-        res.send("BPAGE NOT FOUND!")
+        res.send("PAGE NOT FOUND!")
     }
 })
 
@@ -357,7 +388,7 @@ App.all('/view-team', (req, res) => {
             }
         } else {
             if (res.session) res.session.destroy()
-            res.send("CPAGE NOT FOUND!")
+            res.send("PAGE NOT FOUND!")
         }
     } else if (req.method == "POST" && req.session.team != null && (req.headers.referer == 'https://' + req.headers.host + '/view-team' || req.headers.referer == 'http://' + req.headers.host + '/view-team')) {
         // TODO: show team detail as user is already logged in
@@ -389,7 +420,7 @@ App.all('/view-team', (req, res) => {
     } else {
         console.log(req.method)
         if (req.session) req.session.destroy()
-        res.send("DPAGE NOT FOUND!")
+        res.send("PAGE NOT FOUND!")
     }
 })
 
@@ -435,7 +466,7 @@ App.all('/pay', (req, res) => {
         });
         console.log(req.session.team)
     } else {
-        res.send("EPAGE NOT FOUND!")
+        res.send("PAGE NOT FOUND!")
     }
 })
 

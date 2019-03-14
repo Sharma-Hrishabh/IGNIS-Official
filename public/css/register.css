@@ -305,3 +305,7 @@ div.keywords > div > div.row > div > label.active {
     border-color: white;
   }
 }
+
+select {
+    display: block !important;
+}
