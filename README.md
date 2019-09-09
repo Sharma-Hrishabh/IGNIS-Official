@@ -1,5 +1,7 @@
 # IGNIS-Official
-Website for Annual Sports-Fest of NIT-Surat [Under Development]
+Website for Annual Sports-Fest of NIT-Surat
+
+![enter image description here](https://github.com/Sharma-Hrishabh/IGNIS-Official/blob/master/screen.png)
 
 # Libraries and Frameworks
 - nodejs
